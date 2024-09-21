@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Your frontend URL
+    origin: process.env.CLIENT_URL || "http://localhost:3000", // Your frontend URL
     credentials: true, // Allow credentials (cookies) to be sent
   })
 );

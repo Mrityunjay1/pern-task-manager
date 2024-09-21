@@ -39,7 +39,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           },
         );
       } catch (err) {
-        throw new Error("Not authenticated", err);
         router.push("/login");
       }
     };
