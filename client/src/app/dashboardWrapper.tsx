@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+const PUBLIC_ROUTES = ["/registration", "/login"];
+
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const isAuthenticated = useAppSelector(
@@ -14,32 +16,36 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   );
   const router = useRouter();
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        await axios.get(
-          process.env.NEXT_PUBLIC_API_BASE_URL + "/auth/check-session",
-          {
-            withCredentials: true,
-          },
-        ); // Assuming this route checks for session
-      } catch (err) {
-        router.push("/login");
-      }
-    };
-
-    checkAuth();
-  }, [router]);
-
   const path = usePathname();
   const isHomeRoute = path === "/";
-  const isAuthRoute = path === "/login" || path === "/register";
+  const isAuthRoute = path === "/login" || path === "/registration";
 
   const hideHeader = isAuthRoute || isHomeRoute;
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      // Skip auth check if the current route is public
+      if (PUBLIC_ROUTES.includes(path)) return;
+
+      try {
+        await axios.get(
+          process.env.NEXT_PUBLIC_API_BASE_URL + "/auth/check-session",
+          {
+            withCredentials: true,
+          },
+        );
+      } catch (err) {
+        throw new Error("Not authenticated", err);
+        router.push("/login");
+      }
+    };
+
+    checkAuth();
+  }, [router]);
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">

@@ -49,7 +49,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.cookie("token", token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000, // 1 day
         });
         return res.status(201).json({
@@ -89,8 +89,8 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const token = generateToken(user);
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "none", // Allows cross-origin cookie sharing
             maxAge: 24 * 60 * 60 * 1000, // 1 day
         });
         return res.status(200).json({

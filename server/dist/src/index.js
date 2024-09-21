@@ -24,8 +24,8 @@ app.use(body_parser_1.default.urlencoded({ extended: false }));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 app.use((0, cookie_parser_1.default)());
 app.use((0, cors_1.default)({
-    origin: process.env.CLIENT_URL || "http://localhost:3000", // Replace with your frontend URL
-    credentials: true, // Allow cookies to be sent cross-origin
+    origin: "http://localhost:3000", // Your frontend URL
+    credentials: true, // Allow credentials (cookies) to be sent
 }));
 //
 const port = process.env.PORT || 8000;

@@ -46,7 +46,7 @@ export const register = async (req: Request, res: Response) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
 
@@ -86,8 +86,8 @@ export const login = async (req: Request, res: Response) => {
     const token = generateToken(user);
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "none", // Allows cross-origin cookie sharing
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
     return res.status(200).json({
