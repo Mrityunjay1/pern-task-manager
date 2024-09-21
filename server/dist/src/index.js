@@ -24,7 +24,7 @@ app.use(body_parser_1.default.urlencoded({ extended: false }));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 app.use((0, cookie_parser_1.default)());
 app.use((0, cors_1.default)({
-    origin: "https://pern-task-manager-1.onrender.com", // Your frontend URL
+    origin: "https://task-manager-eight-ashen.vercel.app", // Your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 //
