@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Clock, Users, Zap } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,9 +11,6 @@ export default function Home() {
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
             TaskMaster
-          </div>
-          <div>
-            <Button variant="outline">Sign In</Button>
           </div>
         </nav>
       </header>
@@ -26,12 +24,14 @@ export default function Home() {
             Boost your productivity and streamline your workflow
           </p>
           <div>
-            <Button
-              size="lg"
-              className="bg-purple-600 text-white hover:bg-purple-700"
-            >
-              Get Started
-            </Button>
+            <Link href="/projects/1">
+              <Button
+                size="lg"
+                className="bg-purple-600 text-white hover:bg-purple-700"
+              >
+                Get Started
+              </Button>
+            </Link>
           </div>
         </section>
 
@@ -80,14 +80,6 @@ export default function Home() {
           <p className="mb-8 text-xl text-gray-600 dark:text-gray-300">
             Join thousands of users who are already boosting their productivity
           </p>
-          <div>
-            <Button
-              size="lg"
-              className="bg-purple-600 text-white hover:bg-purple-700"
-            >
-              Sign Up Now
-            </Button>
-          </div>
         </section>
       </main>
 
