@@ -25,8 +25,8 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000", // Your frontend URL
-    credentials: true, // Allow credentials (cookies) to be sent
+    origin: "https://pern-task-manager-1.onrender.com", // Your frontend URL
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
 );
 
