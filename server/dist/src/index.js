@@ -28,6 +28,7 @@ app.use((0, cors_1.default)({
     credentials: true, // Allow cookies to be sent cross-origin
 }));
 //
+const port = process.env.PORT || 8000;
 // Routes
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -36,6 +37,6 @@ app.use("/auth", auth_1.default);
 app.use("/projects", projectRoutes_1.default);
 app.use("/tasks", taskRoutes_1.default);
 app.use("/search", searchRoutes_1.default);
-app.listen(8000, () => {
-    console.log("Server started on port 3000");
+app.listen(port, () => {
+    console.log("Server started on port " + port);
 });

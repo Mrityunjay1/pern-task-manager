@@ -31,6 +31,7 @@ app.use(
 );
 
 //
+const port = process.env.PORT || 8000;
 // Routes
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -41,6 +42,6 @@ app.use("/projects", projectRoutes);
 app.use("/tasks", taskRoutes);
 app.use("/search", searchRoutes);
 
-app.listen(8000, () => {
-  console.log("Server started on port 3000");
+app.listen(port, () => {
+  console.log("Server started on port " + port);
 });
