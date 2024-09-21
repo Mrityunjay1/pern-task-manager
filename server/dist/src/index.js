@@ -27,6 +27,7 @@ app.use((0, cors_1.default)({
     origin: process.env.CLIENT_URL || "http://localhost:3000", // Replace with your frontend URL
     credentials: true, // Allow cookies to be sent cross-origin
 }));
+//
 // Routes
 app.get("/", (req, res) => {
     res.send("Hello World!");
