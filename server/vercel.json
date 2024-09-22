@@ -1,16 +1,18 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "dist/src/index.js",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
-        }
+      {
+        "src": "dist/src/index.js",
+        "use": "@vercel/node",
+        "config": { "includeFiles": ["dist/**"] }
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/src/index.js"
-        }
-    ]
-}
+      {
+        "src": "/(.*)",
+        "dest": "dist/src/index.js"
+      }
+    ],
+    "buildCommand": "./vercel-build.sh",
+    "installCommand": "npm install"
+  }

@@ -145,6 +145,9 @@ export default function RegistrationPage() {
               </Button>
             </form>
           </Form>
+          <CardDescription className="text-center text-sm text-muted-foreground">
+            Already have an account? <a href="/login">Log in</a>
+          </CardDescription>
         </CardContent>
       </Card>
     </div>
