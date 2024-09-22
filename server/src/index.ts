@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://task-manager-eight-ashen.vercel.app", // Your frontend URL
+    origin: "https://pern-task.vercel.app", // Your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
 );

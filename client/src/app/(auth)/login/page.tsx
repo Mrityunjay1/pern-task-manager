@@ -124,7 +124,7 @@ export default function LoginPage() {
                 Login
               </Button>
             </form>
-            <CardDescription className="text-center text-sm text-muted">
+            <CardDescription className="text-center text-sm text-gray-800">
               Dont have an account? Sign up <a href="/registration">here</a>.
             </CardDescription>
           </Form>
